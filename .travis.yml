@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -f Dockerfile.dev -t chinmaya/docker-react .
+
+script:
+  - docker run chinmaya/docker-react npm run test -- --coverage
+  
